@@ -3,6 +3,8 @@ package vttp_paf.drone.models;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+
 public class Pilot {
 
     private String pilot_id;
@@ -22,5 +24,14 @@ public class Pilot {
     public List<Race> getRaceList() {       return raceList;       }
     public void setRaceList(List<Race> raceList) {       this.raceList = raceList;       }
 
-    
+    public static Pilot create(SqlRowSet rs) {
+
+        Pilot pt = new Pilot();
+
+        pt.setPilot_id(rs.getString("id"));
+        pt.setPilot_name(rs.getString("pilot_name"));
+        pt.setDrone_name(rs.getString("drone_name"));
+        
+        return pt;
+    }
 }

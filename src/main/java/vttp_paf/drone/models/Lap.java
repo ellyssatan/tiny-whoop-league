@@ -1,5 +1,7 @@
 package vttp_paf.drone.models;
 
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+
 public class Lap {
     
     private int lap_id;
@@ -19,5 +21,15 @@ public class Lap {
     public double getTime() {        return time;        }
     public void setTime(double time) {        this.time = time;        }
 
-    
+    public static Lap create(SqlRowSet rs) {
+
+        Lap lp = new Lap();
+
+        lp.setLap_id(rs.getInt("id"));
+        lp.setRace_id(rs.getInt("race_id"));
+        lp.setPilot_id(rs.getString("pilot_id"));
+        lp.setTime(rs.getDouble("time_s"));
+
+        return lp;
+    }
 }

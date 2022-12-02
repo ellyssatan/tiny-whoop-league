@@ -37,7 +37,12 @@ public class RaceRepository {
 
         List<Pilot> pilots = new LinkedList<>();
 
-        // SQL_GET_ALL_PILOTS
+        final SqlRowSet rs = template.queryForRowSet(SQL_GET_ALL_PILOTS);
+
+        while (rs.next()) {
+
+            pilots.add(Pilot.create(rs));
+        }
 
         return pilots;
     }

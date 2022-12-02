@@ -47,6 +47,7 @@ public class Race {
 
         Race r = new Race();
 
+        r.setRace_id(rs.getInt("id"));
         r.setRace_name(rs.getString("name"));
         
         if (3 == rs.getInt("number_of_laps")) {
@@ -54,7 +55,7 @@ public class Race {
         } else {
             r.setNumber_of_laps(NumLap.FIVE);
         };
-        
+
         r.setClosing_date(rs.getDate("closing_date"));
 
         return r;
