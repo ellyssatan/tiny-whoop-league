@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Repository;
 
+import vttp_paf.drone.models.Lap;
 import vttp_paf.drone.models.Pilot;
 import vttp_paf.drone.models.Race;
 
@@ -47,10 +48,18 @@ public class RaceRepository {
         return pilots;
     }
 
-    public List<Race> getAllLaps() {
-        // SQL_GET_ALL_LAPS
+    public List<Lap> getAllLaps() {
+        
+        List<Lap> laps = new LinkedList<>();
 
-        return null;
+        final SqlRowSet rs = template.queryForRowSet(SQL_GET_ALL_LAPS);
+
+        while (rs.next()) {
+
+            laps.add(Lap.create(rs));
+        }
+
+        return laps;
     }
 
     public List<Race> updateRace() {

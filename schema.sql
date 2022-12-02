@@ -4,7 +4,7 @@ create table raceDetails (
     number_of_laps enum('3', '5') default '3',
     closing_date date not null,
 
-    primary key(race_id)
+    primary key(id)
 );
 
 create table pilots (
@@ -16,7 +16,7 @@ create table pilots (
 );
 
 create table lapDetails (
-    id int not null,
+    id int auto_increment,
     race_id int not null,
     pilot_id char(5) not null,
     time_s decimal(2,2) not null,
@@ -26,4 +26,4 @@ create table lapDetails (
         foreign key(race_id) references raceDetails(id),
     -- constraint fk_pilot_id 
         foreign key(pilot_id) references pilots(id)
-);
+)

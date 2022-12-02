@@ -32,4 +32,16 @@ public class Lap {
 
         return lp;
     }
+
+    public static Lap create(int lap_id, int race_id, String pilot_id, double time) {
+
+        Lap lp = new Lap();
+
+        lp.setLap_id(lap_id);
+        lp.setRace_id(race_id);
+        lp.setPilot_id(pilot_id);
+        lp.setTime(time);
+
+        return lp;
+    }
 }
