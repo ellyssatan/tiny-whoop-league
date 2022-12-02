@@ -12,6 +12,16 @@ public class RaceController {
         return "raceList";
     }
 
+    @RequestMapping("/raceCourse")
+    public String addraceCoursePage() {
+        return "raceCourse";
+    }
+
+    @RequestMapping("/addPilot")
+    public String listOfPilot() {
+        return "addPilot";
+    }
+
 
     
 }
