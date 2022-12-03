@@ -2,7 +2,7 @@ package vttp_paf.drone.repositories;
 
 public class Queries {
 
-    public static final String SQL_GET_ALL_RACES = "select id, name, number_of_laps, closing_date from raceDetails";
+    public static final String SQL_GET_ALL_RACES = "select id, name, number_of_laps, DATE_FORMAT(closing_date, \"%d/%m/%Y\") as closing_date from raceDetails";
 
     public static final String SQL_GET_ALL_PILOTS = "select id, pilot_name, drone_name from pilots";
 

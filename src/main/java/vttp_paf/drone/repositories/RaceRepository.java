@@ -49,7 +49,7 @@ public class RaceRepository {
     }
 
     public List<Lap> getAllLaps() {
-        
+
         List<Lap> laps = new LinkedList<>();
 
         final SqlRowSet rs = template.queryForRowSet(SQL_GET_ALL_LAPS);
@@ -76,17 +76,19 @@ public class RaceRepository {
 
     }
 
-    public List<Race> insertRace() {
-        // SQL_INSERT_RACE
+    public boolean insertRace(Race r) {
 
-        return null;
+        // name, number_of_laps, closing_date
+        final int result = template.update(SQL_INSERT_RACE, r.getRace_name(), r.getNumber_of_laps(), r.getClosing_date());
 
+        return result == 1;
     }
 
-    public List<Race> insertPilot() {
-        // SQL_INSERT_PILOT
+    public boolean insertPilot(Pilot p) {
+ 
+        final int result = template.update(SQL_INSERT_PILOT, p.getPilot_name(), p.getDrone_name());
 
-        return null;
+        return result == 1;
 
     }
 

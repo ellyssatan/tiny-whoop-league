@@ -7,17 +7,43 @@
     <title>List of Race</title>
 </head>
 <body>
-    <form class="raceList" form method="POST" action="/addRace">
+    <form method="GET">
         <h1>List of Race Course</h1>
         <table>
-            <tr>
+            <th>
+                <tr>
+                    <td>Race ID</td>
+                    <td>Race Name</td>
+                    <td>Number of Laps</td>
+                    <td>Closing Date</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            </th>
+            <tr data-th-each="r : ${races}">
                 <td>
-                    <a th:href="@{pilotList}" class="fw-bold text-body"><u>List of Pilot</u></a></p>
-                    <a th:href="@{raceCourse}" class="fw-bold text-body"><u>Race Course</u></a></p>
+                    <span data-th-text="${r.race_id}" name="race_id"></span>
                 </td>
+                <td>
+                    <span data-th-text="${r.race_name}" name="race_name"></span>
+                </td>
+                <td>
+                    <span data-th-text="${r.number_of_laps}" name="number_of_laps"></span>
+                </td>
+                <td>
+                    <span data-th-text="${r.closing_date}" name="closing_date"></span>
+                </td>
+                <td>
+                    <button type="submit" formaction="/edit">Edit</button>
+                </td>
+                <td>
+                    <button type="submit" formaction="/delete">Delete</button>
+                </td>
+                
             </tr>
         </table>
-
+        <a th:href="@{addPilot}">List of Pilot</a>
+        <a th:href="@{addRace}">Race Course</a>
     </form>
 </body>
 </html>

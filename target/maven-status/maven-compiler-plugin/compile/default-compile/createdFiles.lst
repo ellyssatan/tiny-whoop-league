@@ -1,8 +1,9 @@
-vttp_paf\drone\models\Race.class
-vttp_paf\drone\models\NumLap.class
-vttp_paf\drone\controllers\RaceController.class
-vttp_paf\drone\repositories\RaceRepository.class
-vttp_paf\drone\DroneApplication.class
-vttp_paf\drone\models\Lap.class
-vttp_paf\drone\models\Pilot.class
-vttp_paf\drone\repositories\Queries.class
+vttp_paf/drone/services/RaceService.class
+vttp_paf/drone/controllers/RaceController.class
+vttp_paf/drone/models/NumLap.class
+vttp_paf/drone/models/Lap.class
+vttp_paf/drone/models/Race.class
+vttp_paf/drone/repositories/Queries.class
+vttp_paf/drone/repositories/RaceRepository.class
+vttp_paf/drone/DroneApplication.class
+vttp_paf/drone/models/Pilot.class

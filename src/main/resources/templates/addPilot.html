@@ -7,14 +7,20 @@
     <title>Document</title>
 </head>
 <body>
-    <form class="raceList" form method="POST" action="/addRace">
+    <form method="POST" action="/addPilot">
         <h1>Add Pilot</h1>
-        Pilot's Name:
-        <input type="text" name="" class="form-control" id="searchInputReceipt">
-        Drone's Name:
-        <input type="text" name="" class="form-control" id="searchInputReceipt">
+        <table>
+            <tr>
+                <td>Pilot's Name:</td>
+                <td><input type="text" name="pilotName"></td>
+            </tr>
+            <tr>
+                <td>Drone's Name:</td>
+                <td><input type="text" name="droneName"></td>
+            </tr>
+        </table>
 
-        <button type="submit">Save</button>
+        <button type="submit">Add pilot</button>
        
     </form>
 </body>

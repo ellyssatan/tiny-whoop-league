@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 public class Race {
@@ -29,7 +31,7 @@ public class Race {
     private String race_name;
     // private NumLap number_of_laps;
     private int number_of_laps;
-    private Date closing_date;
+    private DateTime closing_date;
     private List<Pilot> pilotList = new LinkedList<>();
 
     public int getRace_id() {       return race_id;       }
@@ -41,8 +43,8 @@ public class Race {
     public int getNumber_of_laps() {       return number_of_laps;       }
     public void setNumber_of_laps(int number_of_laps) {       this.number_of_laps = number_of_laps;       }
 
-    public Date getClosing_date() {       return closing_date;       }
-    public void setClosing_date(Date closing_date) {       this.closing_date = closing_date;       }
+    public DateTime getClosing_date() {       return closing_date;       }
+    public void setClosing_date(DateTime closing_date) {       this.closing_date = closing_date;       }
 
     public List<Pilot> getPilotList() {       return pilotList;       }
     public void setPilotList(List<Pilot> pilotList) {       this.pilotList = pilotList;       }
@@ -54,12 +56,14 @@ public class Race {
         r.setRace_id(rs.getInt("id"));
         r.setRace_name(rs.getString("name"));
         r.setNumber_of_laps(rs.getInt("number_of_laps"));
-        r.setClosing_date(rs.getDate("closing_date"));
+        r.setClosing_date(new DateTime(
+            DateTimeFormat.forPattern("dd/MM/yyyy")
+                    .parseDateTime(rs.getString("closing_date"))));
 
         return r;
     }
 
-    public static Race create(int race_id, String race_name, int number_of_laps, Date closing_date, List<Pilot> pilotList) {
+    public static Race create(int race_id, String race_name, int number_of_laps, DateTime closing_date, List<Pilot> pilotList) {
 
         Race r = new Race();
 
@@ -67,6 +71,17 @@ public class Race {
         r.setNumber_of_laps(number_of_laps);
         r.setClosing_date(closing_date);
         r.setPilotList(pilotList);
+
+        return r;
+    }
+
+    public static Race create(String race_name, int number_of_laps, DateTime closing_date) {
+
+        Race r = new Race();
+
+        r.setRace_name(race_name);
+        r.setNumber_of_laps(number_of_laps);
+        r.setClosing_date(closing_date);
 
         return r;
     }
