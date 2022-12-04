@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Pilot Details</title>
 </head>
 <body>
-    <form method="POST" action="/insertPilot">
-        <h1>Add Pilot</h1>
+    <form method="POST" action="/updatePilot">
+        <h1>Edit Pilot</h1>
         <table>
             <tr>
                 <td>Pilot's Name:</td>
-                <td><input type="text" name="pilotName"></td>
+                <td><input type="text" name="pilotName" data-th-value="${pilot_name}"></td>
             </tr>
             <tr>
                 <td>Drone's Name:</td>
-                <td><input type="text" name="droneName"></td>
+                <td><input type="text" name="droneName" data-th-value="${drone_name}"></td>
             </tr>
         </table>
 
-        <button type="submit">Add pilot</button>
+        <button type="submit">Update pilot</button>
        
     </form>
 </body>

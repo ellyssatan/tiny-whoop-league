@@ -33,15 +33,25 @@ public class RaceController {
         return "raceList";
     }
 
+    @RequestMapping("/pilotList")
+    public String pilotListPage(Model model) {
+
+        List<Pilot> pilots = rRepo.getAllPilots();
+
+        model.addAttribute("pilots", pilots);
+
+        return "pilotList";
+    }
+
     @RequestMapping("/addRace")
     public String addraceCoursePage() {
 
         return "addRace";
     }
 
-    @RequestMapping("/addPilot")
+    @RequestMapping("/pilotList")
     public String listOfPilot(Model model) {
-        return "addPilot";
+        return "pilotList";
     }
 
     @PostMapping("/insertRace")
@@ -49,8 +59,8 @@ public class RaceController {
 
         String name = form.getFirst("name");
         int numLaps = Integer.parseInt(form.getFirst("numLaps"));
-        DateTime date = new DateTime(form.getFirst("numLaps"));
-        System.out.println("");
+        DateTime date = new DateTime(form.getFirst("date"));
+        System.out.printf(">>> Name: %s, numlaps: %s, date: %s", name, numLaps, date);
 
         Race r = Race.create(name, numLaps, date);
 

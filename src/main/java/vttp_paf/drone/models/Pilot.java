@@ -37,6 +37,7 @@ public class Pilot {
         Pilot pt = new Pilot();
 
         String pilot_id = UUID.randomUUID().toString().substring(0, 5);
+        System.out.printf(">>>> PILOT ID GENERATED: ", pilot_id);
         pt.setPilot_id(pilot_id);
         pt.setPilot_name(pilot_name);
         pt.setDrone_name(drone_name);

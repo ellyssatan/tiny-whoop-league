@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Race</title>
+</head>
+<body>
+    <form method="GET">
+        <h1>List of Pilots for <span data-th-text="${r.race_name}"></span></h1>
+        <a th:href="@{addPilot}">Add Pilot</a>
+        <table>
+            <th>
+                <tr>
+                    <td>Pilot ID</td>
+                    <td>Pilot Name</td>
+                    <td>Drone Name</td>
+                    <!-- <td>Edit</td>
+                    <td>Delete</td> -->
+                </tr>
+            </th>
+            <tr data-th-each="p : ${pilots}">
+                <td>
+                    <span data-th-text="${p.pilot_id}" name="pilot_id"></span>
+                </td>
+                <td>
+                    <span data-th-text="${p.pilot_name}" name="pilot_name"></span>
+                </td>
+                <td>
+                    <span data-th-text="${p.drone_name}" name="drone_name"></span>
+                </td>
+                <td>
+                    <button type="submit" formaction="/edit">Edit</button>
+                </td>
+                <td>
+                    <button type="submit" formaction="/delete">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

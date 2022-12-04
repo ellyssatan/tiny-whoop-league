@@ -1,6 +1,5 @@
 package vttp_paf.drone.models;
 
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -59,6 +58,7 @@ public class Race {
         r.setClosing_date(new DateTime(
             DateTimeFormat.forPattern("dd/MM/yyyy")
                     .parseDateTime(rs.getString("closing_date"))));
+        r.setPilotList(new LinkedList<>());
 
         return r;
     }
@@ -67,6 +67,7 @@ public class Race {
 
         Race r = new Race();
 
+        // r.setRace_id(race_id);
         r.setRace_name(race_name);
         r.setNumber_of_laps(number_of_laps);
         r.setClosing_date(closing_date);
@@ -82,6 +83,7 @@ public class Race {
         r.setRace_name(race_name);
         r.setNumber_of_laps(number_of_laps);
         r.setClosing_date(closing_date);
+        r.setPilotList(new LinkedList<>());
 
         return r;
     }

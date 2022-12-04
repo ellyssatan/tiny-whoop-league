@@ -11,6 +11,7 @@ import vttp_paf.drone.models.Race;
 
 import static vttp_paf.drone.repositories.Queries.*;
 
+import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -79,14 +80,14 @@ public class RaceRepository {
     public boolean insertRace(Race r) {
 
         // name, number_of_laps, closing_date
-        final int result = template.update(SQL_INSERT_RACE, r.getRace_name(), r.getNumber_of_laps(), r.getClosing_date());
+        final int result = template.update(SQL_INSERT_RACE, r.getRace_name(), r.getNumber_of_laps(), new Timestamp(r.getClosing_date().toDateTime().getMillis()));
 
         return result == 1;
     }
 
     public boolean insertPilot(Pilot p) {
  
-        final int result = template.update(SQL_INSERT_PILOT, p.getPilot_name(), p.getDrone_name());
+        final int result = template.update(SQL_INSERT_PILOT, p.getPilot_id(), p.getPilot_name(), p.getDrone_name());
 
         return result == 1;
 
