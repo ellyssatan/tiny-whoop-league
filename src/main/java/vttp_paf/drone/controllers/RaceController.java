@@ -1,6 +1,5 @@
 package vttp_paf.drone.controllers;
 
-import java.util.Date;
 import java.util.List;
 
 import org.joda.time.DateTime;
@@ -38,6 +37,7 @@ public class RaceController {
 
         List<Pilot> pilots = rRepo.getAllPilots();
 
+        // model.addAttribute("race", race);
         model.addAttribute("pilots", pilots);
 
         return "pilotList";
@@ -49,7 +49,7 @@ public class RaceController {
         return "addRace";
     }
 
-    @RequestMapping("/pilotList")
+    @RequestMapping("/pilots")
     public String listOfPilot(Model model) {
         return "pilotList";
     }

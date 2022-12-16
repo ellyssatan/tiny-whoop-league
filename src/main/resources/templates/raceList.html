@@ -22,7 +22,9 @@
             </th>
             <tr data-th-each="r : ${races}">
                 <td>
-                    <span data-th-text="${r.race_id}" name="race_id"></span>
+                    <form action="" method="get">
+                        <span data-th-text="${r.race_id}" name="race_id"></span>
+                    </form>
                 </td>
                 <td>
                     <span data-th-text="${r.race_name}" name="race_name"></span>
